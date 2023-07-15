@@ -10,8 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "John Serrano",
+  "license": "MIT",
   "devDependencies": {
     "@types/express": "4.17.17",
     "ts-node-dev": "2.0.0",
