@@ -4,27 +4,49 @@
 ### Install TypeScript
 `npm install typescript -D -E`
 
-### Added tsc script to package.json
-```js
+### Add tsc script to package.json
+```json
   "scripts": {
     "tsc": "tsc"
   }
 ```
+This generates the code JS for prod
+
 ### Init config tsc
 `npm run tsc -- --init`
 
-### Added types express
+### Add types express
 `npm install @types/express -D -E`
 
-### Added dev mode
+### Add dev mode
 `npm install ts-node-dev -D -E`
 
-### Added dev script to package.json
-```js
+### Add dev script to package.json
+```json
   "scripts": {
     "dev": "ts-node-dev src/index.ts"
   }
 ```
+### Add Eslint with ts-standard
+`npm install ts-standard -D -E`
+
+```json
+  "scripts": {
+    "lint": "ts-standard"
+  }
+```
+and add in the `packa.json`:
+```json
+  "eslintConfig": {
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "extends": [
+      "./node_modules/ts-standard/eslintrc.json"
+    ]
+  }
+```
+Check if eslint is configured correctly
 
 ## Start project
 
