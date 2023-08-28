@@ -16,10 +16,15 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  const { date, weather, visibility, comment } = req.body
+  try {
+    // const { date, weather, visibility, comment } = req.body // by default the types are any
+    const newDiaryEntry = toNewDiaryEntry(req.body)
+    const addedDiary = diaryServices.addDiary(newDiaryEntry)
 
-  const newDiary = diaryServices.addDiary({ date, weather, visibility, comment })
-  res.json(newDiary)
+    res.json(addedDiary)
+  } catch (error) {
+    res.sendStatus(400).send(error.message)
+  }
 })
 
 export default router
