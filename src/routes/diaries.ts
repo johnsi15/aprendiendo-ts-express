@@ -1,5 +1,6 @@
 import express from 'express'
 import * as diaryServices from '../services/diariesServices'
+import toNewDiaryEntry from '../utils'
 
 const router = express.Router()
 
@@ -22,8 +23,8 @@ router.post('/', (req, res) => {
     const addedDiary = diaryServices.addDiary(newDiaryEntry)
 
     res.json(addedDiary)
-  } catch (error) {
-    res.sendStatus(400).send(error.message)
+  } catch (e: any) {
+    res.status(400).send(e.message)
   }
 })
 
